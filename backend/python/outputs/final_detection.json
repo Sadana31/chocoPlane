@@ -1,0 +1,16 @@
+[
+    {
+        "image": "test_aircraft.jpg",
+        "location": "Fuselage",
+        "class": "crack",
+        "confidence": 0.43,
+        "x": 600,
+        "y": 685,
+        "width": 321,
+        "height": 319,
+        "severity": 95,
+        "urgency": "High",
+        "priority": "#1",
+        "recommendation": "Immediate Inspection"
+    }
+]

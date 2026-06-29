@@ -1,0 +1,301 @@
+aircraft_id,inspection_date,defect_type,confidence,bbox_area,location
+AC001,2025-01-24,Dent,0.97,296,Left Wing
+AC001,2025-02-23,Dent,0.91,213,Left Wing
+AC001,2025-03-25,Dent,0.81,206,Left Wing
+AC001,2025-04-24,Dent,0.84,229,Left Wing
+AC001,2025-01-24,Rupture,0.94,508,Right Wing
+AC001,2025-02-23,Rupture,0.84,735,Right Wing
+AC001,2025-03-25,Rupture,0.95,890,Right Wing
+AC001,2025-04-24,Rupture,0.94,871,Right Wing
+AC001,2025-01-24,Crack,0.86,285,Right Wing
+AC001,2025-02-23,Crack,0.84,250,Right Wing
+AC001,2025-03-25,Crack,0.86,328,Right Wing
+AC001,2025-04-24,Crack,0.87,242,Right Wing
+AC002,2025-01-15,Rupture,0.81,474,Wing Root
+AC002,2025-02-14,Rupture,0.96,669,Wing Root
+AC002,2025-03-16,Rupture,0.91,898,Wing Root
+AC002,2025-04-15,Rupture,0.81,885,Wing Root
+AC002,2025-01-15,Fastener Damage,0.96,316,Wing Root
+AC002,2025-02-14,Fastener Damage,0.87,224,Wing Root
+AC002,2025-03-16,Fastener Damage,0.92,100,Wing Root
+AC002,2025-04-15,Fastener Damage,0.83,100,Wing Root
+AC002,2025-01-15,Dent,0.93,381,Tail Section
+AC002,2025-02-14,Dent,0.92,519,Tail Section
+AC002,2025-03-16,Dent,0.9,707,Tail Section
+AC002,2025-04-15,Dent,0.83,927,Tail Section
+AC003,2025-01-08,Corrosion,0.88,620,Wing Root
+AC003,2025-02-07,Corrosion,0.84,756,Wing Root
+AC003,2025-03-09,Corrosion,0.84,1020,Wing Root
+AC003,2025-04-08,Corrosion,0.88,1361,Wing Root
+AC003,2025-01-08,Fastener Damage,0.83,676,Right Wing
+AC003,2025-02-07,Fastener Damage,0.85,635,Right Wing
+AC003,2025-03-09,Fastener Damage,0.9,689,Right Wing
+AC003,2025-04-08,Fastener Damage,0.91,713,Right Wing
+AC003,2025-01-08,Rupture,0.87,660,Left Wing
+AC003,2025-02-07,Rupture,0.9,626,Left Wing
+AC003,2025-03-09,Rupture,0.94,620,Left Wing
+AC003,2025-04-08,Rupture,0.83,623,Left Wing
+AC004,2025-01-13,Crack,0.85,505,Tail Section
+AC004,2025-02-12,Crack,0.96,355,Tail Section
+AC004,2025-03-14,Crack,0.93,343,Tail Section
+AC004,2025-04-13,Crack,0.93,223,Tail Section
+AC004,2025-01-13,Corrosion,0.92,474,Fuselage
+AC004,2025-02-12,Corrosion,0.86,380,Fuselage
+AC004,2025-03-14,Corrosion,0.89,274,Fuselage
+AC004,2025-04-13,Corrosion,0.97,100,Fuselage
+AC004,2025-01-13,Dent,0.83,381,Engine Area
+AC004,2025-02-12,Dent,0.97,297,Engine Area
+AC004,2025-03-14,Dent,0.96,322,Engine Area
+AC004,2025-04-13,Dent,0.92,348,Engine Area
+AC005,2025-01-20,Crack,0.82,365,Wing Root
+AC005,2025-02-19,Crack,0.97,239,Wing Root
+AC005,2025-03-21,Crack,0.85,127,Wing Root
+AC005,2025-04-20,Crack,0.97,100,Wing Root
+AC005,2025-01-20,Crack,0.94,684,Fuselage
+AC005,2025-02-19,Crack,0.99,821,Fuselage
+AC005,2025-03-21,Crack,0.82,988,Fuselage
+AC005,2025-04-20,Crack,0.98,1407,Fuselage
+AC005,2025-01-20,Fastener Damage,0.97,284,Left Wing
+AC005,2025-02-19,Fastener Damage,0.98,150,Left Wing
+AC005,2025-03-21,Fastener Damage,0.94,100,Left Wing
+AC005,2025-04-20,Fastener Damage,0.84,100,Left Wing
+AC006,2025-01-04,Rupture,0.86,326,Engine Area
+AC006,2025-02-03,Rupture,0.91,504,Engine Area
+AC006,2025-03-05,Rupture,0.81,568,Engine Area
+AC006,2025-04-04,Rupture,0.84,731,Engine Area
+AC006,2025-01-04,Rupture,0.81,663,Engine Area
+AC006,2025-02-03,Rupture,0.85,843,Engine Area
+AC006,2025-03-05,Rupture,0.84,1151,Engine Area
+AC006,2025-04-04,Rupture,0.94,1122,Engine Area
+AC006,2025-01-04,Fastener Damage,0.89,674,Engine Area
+AC006,2025-02-03,Fastener Damage,0.89,701,Engine Area
+AC006,2025-03-05,Fastener Damage,0.84,653,Engine Area
+AC006,2025-04-04,Fastener Damage,0.93,613,Engine Area
+AC007,2025-01-21,Rupture,0.88,530,Engine Area
+AC007,2025-02-20,Rupture,0.95,736,Engine Area
+AC007,2025-03-22,Rupture,0.85,824,Engine Area
+AC007,2025-04-21,Rupture,0.9,1034,Engine Area
+AC007,2025-01-21,Corrosion,0.85,271,Engine Area
+AC007,2025-02-20,Corrosion,0.97,160,Engine Area
+AC007,2025-03-22,Corrosion,0.88,100,Engine Area
+AC007,2025-04-21,Corrosion,0.82,100,Engine Area
+AC007,2025-01-21,Dent,0.98,484,Tail Section
+AC007,2025-02-20,Dent,0.96,579,Tail Section
+AC007,2025-03-22,Dent,0.88,504,Tail Section
+AC007,2025-04-21,Dent,0.84,544,Tail Section
+AC008,2025-01-09,Corrosion,0.88,674,Left Wing
+AC008,2025-02-08,Corrosion,0.99,501,Left Wing
+AC008,2025-03-10,Corrosion,0.93,372,Left Wing
+AC008,2025-04-09,Corrosion,0.83,248,Left Wing
+AC008,2025-01-09,Crack,0.91,351,Engine Area
+AC008,2025-02-08,Crack,0.94,486,Engine Area
+AC008,2025-03-10,Crack,0.81,619,Engine Area
+AC008,2025-04-09,Crack,0.9,1077,Engine Area
+AC008,2025-01-09,Dent,0.81,606,Engine Area
+AC008,2025-02-08,Dent,0.82,651,Engine Area
+AC008,2025-03-10,Dent,0.81,609,Engine Area
+AC008,2025-04-09,Dent,0.93,594,Engine Area
+AC009,2025-01-20,Crack,0.88,180,Engine Area
+AC009,2025-02-19,Crack,0.91,244,Engine Area
+AC009,2025-03-21,Crack,0.98,210,Engine Area
+AC009,2025-04-20,Crack,0.93,196,Engine Area
+AC009,2025-01-20,Dent,0.88,360,Fuselage
+AC009,2025-02-19,Dent,0.89,556,Fuselage
+AC009,2025-03-21,Dent,0.8,636,Fuselage
+AC009,2025-04-20,Dent,0.81,795,Fuselage
+AC009,2025-01-20,Crack,0.83,292,Fuselage
+AC009,2025-02-19,Crack,0.97,303,Fuselage
+AC009,2025-03-21,Crack,0.87,290,Fuselage
+AC009,2025-04-20,Crack,0.88,279,Fuselage
+AC010,2025-01-22,Fastener Damage,0.98,606,Tail Section
+AC010,2025-02-21,Fastener Damage,0.98,581,Tail Section
+AC010,2025-03-23,Fastener Damage,0.85,585,Tail Section
+AC010,2025-04-22,Fastener Damage,0.94,581,Tail Section
+AC010,2025-01-22,Rupture,0.91,279,Fuselage
+AC010,2025-02-21,Rupture,0.87,108,Fuselage
+AC010,2025-03-23,Rupture,0.92,100,Fuselage
+AC010,2025-04-22,Rupture,0.9,100,Fuselage
+AC010,2025-01-22,Fastener Damage,0.92,328,Left Wing
+AC010,2025-02-21,Fastener Damage,0.81,518,Left Wing
+AC010,2025-03-23,Fastener Damage,0.95,738,Left Wing
+AC010,2025-04-22,Fastener Damage,0.83,889,Left Wing
+AC011,2025-01-03,Corrosion,0.9,652,Fuselage
+AC011,2025-02-02,Corrosion,0.91,680,Fuselage
+AC011,2025-03-04,Corrosion,0.88,651,Fuselage
+AC011,2025-04-03,Corrosion,0.86,638,Fuselage
+AC011,2025-01-03,Corrosion,0.84,660,Fuselage
+AC011,2025-02-02,Corrosion,0.93,843,Fuselage
+AC011,2025-03-04,Corrosion,0.95,1080,Fuselage
+AC011,2025-04-03,Corrosion,0.99,1332,Fuselage
+AC011,2025-01-03,Dent,0.96,583,Left Wing
+AC011,2025-02-02,Dent,0.97,748,Left Wing
+AC011,2025-03-04,Dent,0.83,835,Left Wing
+AC011,2025-04-03,Dent,0.95,1198,Left Wing
+AC012,2025-01-04,Corrosion,0.84,395,Tail Section
+AC012,2025-02-03,Corrosion,0.87,632,Tail Section
+AC012,2025-03-05,Corrosion,0.84,751,Tail Section
+AC012,2025-04-04,Corrosion,0.88,902,Tail Section
+AC012,2025-01-04,Crack,0.87,342,Wing Root
+AC012,2025-02-03,Crack,0.88,592,Wing Root
+AC012,2025-03-05,Crack,0.98,750,Wing Root
+AC012,2025-04-04,Crack,0.97,789,Wing Root
+AC012,2025-01-04,Crack,0.81,333,Tail Section
+AC012,2025-02-03,Crack,0.87,564,Tail Section
+AC012,2025-03-05,Crack,0.88,733,Tail Section
+AC012,2025-04-04,Crack,0.82,1083,Tail Section
+AC013,2025-01-17,Fastener Damage,0.94,710,Right Wing
+AC013,2025-02-16,Fastener Damage,0.94,717,Right Wing
+AC013,2025-03-18,Fastener Damage,0.87,648,Right Wing
+AC013,2025-04-17,Fastener Damage,0.98,631,Right Wing
+AC013,2025-01-17,Rupture,0.86,671,Left Wing
+AC013,2025-02-16,Rupture,0.94,576,Left Wing
+AC013,2025-03-18,Rupture,0.9,435,Left Wing
+AC013,2025-04-17,Rupture,0.88,176,Left Wing
+AC013,2025-01-17,Corrosion,0.91,393,Left Wing
+AC013,2025-02-16,Corrosion,0.88,380,Left Wing
+AC013,2025-03-18,Corrosion,0.93,404,Left Wing
+AC013,2025-04-17,Corrosion,0.92,378,Left Wing
+AC014,2025-01-07,Rupture,0.92,447,Engine Area
+AC014,2025-02-06,Rupture,0.88,429,Engine Area
+AC014,2025-03-08,Rupture,0.84,456,Engine Area
+AC014,2025-04-07,Rupture,0.95,430,Engine Area
+AC014,2025-01-07,Fastener Damage,0.93,662,Left Wing
+AC014,2025-02-06,Fastener Damage,0.9,677,Left Wing
+AC014,2025-03-08,Fastener Damage,0.92,722,Left Wing
+AC014,2025-04-07,Fastener Damage,0.96,652,Left Wing
+AC014,2025-01-07,Rupture,0.84,584,Wing Root
+AC014,2025-02-06,Rupture,0.83,754,Wing Root
+AC014,2025-03-08,Rupture,0.85,846,Wing Root
+AC014,2025-04-07,Rupture,0.92,1307,Wing Root
+AC015,2025-01-23,Dent,0.88,556,Engine Area
+AC015,2025-02-22,Dent,0.92,458,Engine Area
+AC015,2025-03-24,Dent,0.97,396,Engine Area
+AC015,2025-04-23,Dent,0.97,100,Engine Area
+AC015,2025-01-23,Corrosion,0.83,598,Tail Section
+AC015,2025-02-22,Corrosion,0.9,429,Tail Section
+AC015,2025-03-24,Corrosion,0.91,426,Tail Section
+AC015,2025-04-23,Corrosion,0.89,313,Tail Section
+AC015,2025-01-23,Fastener Damage,0.9,610,Right Wing
+AC015,2025-02-22,Fastener Damage,0.91,459,Right Wing
+AC015,2025-03-24,Fastener Damage,0.97,258,Right Wing
+AC015,2025-04-23,Fastener Damage,0.95,136,Right Wing
+AC016,2025-01-28,Fastener Damage,0.94,443,Engine Area
+AC016,2025-02-27,Fastener Damage,0.85,282,Engine Area
+AC016,2025-03-29,Fastener Damage,0.9,100,Engine Area
+AC016,2025-04-28,Fastener Damage,0.85,100,Engine Area
+AC016,2025-01-28,Fastener Damage,0.84,425,Engine Area
+AC016,2025-02-27,Fastener Damage,0.86,630,Engine Area
+AC016,2025-03-29,Fastener Damage,0.83,705,Engine Area
+AC016,2025-04-28,Fastener Damage,0.87,962,Engine Area
+AC016,2025-01-28,Crack,0.81,255,Tail Section
+AC016,2025-02-27,Crack,0.86,280,Tail Section
+AC016,2025-03-29,Crack,0.88,287,Tail Section
+AC016,2025-04-28,Crack,0.96,254,Tail Section
+AC017,2025-01-01,Corrosion,0.94,682,Fuselage
+AC017,2025-01-31,Corrosion,0.9,549,Fuselage
+AC017,2025-03-02,Corrosion,0.9,334,Fuselage
+AC017,2025-04-01,Corrosion,0.97,211,Fuselage
+AC017,2025-01-01,Dent,0.88,449,Fuselage
+AC017,2025-01-31,Dent,0.87,576,Fuselage
+AC017,2025-03-02,Dent,0.94,895,Fuselage
+AC017,2025-04-01,Dent,0.97,1166,Fuselage
+AC017,2025-01-01,Corrosion,0.97,471,Engine Area
+AC017,2025-01-31,Corrosion,0.91,543,Engine Area
+AC017,2025-03-02,Corrosion,0.82,471,Engine Area
+AC017,2025-04-01,Corrosion,0.83,522,Engine Area
+AC018,2025-01-07,Corrosion,0.94,432,Right Wing
+AC018,2025-02-06,Corrosion,0.85,304,Right Wing
+AC018,2025-03-08,Corrosion,0.85,166,Right Wing
+AC018,2025-04-07,Corrosion,0.89,162,Right Wing
+AC018,2025-01-07,Dent,0.99,539,Wing Root
+AC018,2025-02-06,Dent,0.84,577,Wing Root
+AC018,2025-03-08,Dent,0.95,541,Wing Root
+AC018,2025-04-07,Dent,0.81,616,Wing Root
+AC018,2025-01-07,Corrosion,0.96,215,Wing Root
+AC018,2025-02-06,Corrosion,0.85,374,Wing Root
+AC018,2025-03-08,Corrosion,0.93,697,Wing Root
+AC018,2025-04-07,Corrosion,0.89,740,Wing Root
+AC019,2025-01-23,Rupture,0.82,258,Wing Root
+AC019,2025-02-22,Rupture,0.98,384,Wing Root
+AC019,2025-03-24,Rupture,0.88,690,Wing Root
+AC019,2025-04-23,Rupture,0.81,768,Wing Root
+AC019,2025-01-23,Crack,0.82,534,Fuselage
+AC019,2025-02-22,Crack,0.86,601,Fuselage
+AC019,2025-03-24,Crack,0.91,590,Fuselage
+AC019,2025-04-23,Crack,0.95,518,Fuselage
+AC019,2025-01-23,Fastener Damage,0.9,489,Tail Section
+AC019,2025-02-22,Fastener Damage,0.81,703,Tail Section
+AC019,2025-03-24,Fastener Damage,0.8,903,Tail Section
+AC019,2025-04-23,Fastener Damage,0.96,1170,Tail Section
+AC020,2025-01-05,Dent,0.92,422,Engine Area
+AC020,2025-02-04,Dent,0.89,665,Engine Area
+AC020,2025-03-06,Dent,0.86,798,Engine Area
+AC020,2025-04-05,Dent,0.96,968,Engine Area
+AC020,2025-01-05,Rupture,0.85,244,Tail Section
+AC020,2025-02-04,Rupture,0.91,105,Tail Section
+AC020,2025-03-06,Rupture,0.87,100,Tail Section
+AC020,2025-04-05,Rupture,0.89,100,Tail Section
+AC020,2025-01-05,Corrosion,0.84,366,Tail Section
+AC020,2025-02-04,Corrosion,0.86,552,Tail Section
+AC020,2025-03-06,Corrosion,0.91,746,Tail Section
+AC020,2025-04-05,Corrosion,0.82,870,Tail Section
+AC021,2025-01-23,Corrosion,0.82,451,Engine Area
+AC021,2025-02-22,Corrosion,0.88,343,Engine Area
+AC021,2025-03-24,Corrosion,0.86,229,Engine Area
+AC021,2025-04-23,Corrosion,0.87,100,Engine Area
+AC021,2025-01-23,Fastener Damage,0.88,477,Right Wing
+AC021,2025-02-22,Fastener Damage,0.9,528,Right Wing
+AC021,2025-03-24,Fastener Damage,0.93,478,Right Wing
+AC021,2025-04-23,Fastener Damage,0.86,467,Right Wing
+AC021,2025-01-23,Corrosion,0.86,318,Tail Section
+AC021,2025-02-22,Corrosion,0.84,485,Tail Section
+AC021,2025-03-24,Corrosion,0.85,804,Tail Section
+AC021,2025-04-23,Corrosion,0.99,894,Tail Section
+AC022,2025-01-01,Crack,0.85,528,Wing Root
+AC022,2025-01-31,Crack,0.91,518,Wing Root
+AC022,2025-03-02,Crack,0.98,601,Wing Root
+AC022,2025-04-01,Crack,0.97,593,Wing Root
+AC022,2025-01-01,Crack,0.91,451,Wing Root
+AC022,2025-01-31,Crack,0.89,691,Wing Root
+AC022,2025-03-02,Crack,0.84,865,Wing Root
+AC022,2025-04-01,Crack,0.85,850,Wing Root
+AC022,2025-01-01,Crack,0.96,641,Wing Root
+AC022,2025-01-31,Crack,0.89,510,Wing Root
+AC022,2025-03-02,Crack,0.92,335,Wing Root
+AC022,2025-04-01,Crack,0.83,383,Wing Root
+AC023,2025-01-25,Fastener Damage,0.95,439,Wing Root
+AC023,2025-02-24,Fastener Damage,0.95,391,Wing Root
+AC023,2025-03-26,Fastener Damage,0.89,411,Wing Root
+AC023,2025-04-25,Fastener Damage,0.86,419,Wing Root
+AC023,2025-01-25,Dent,0.91,501,Right Wing
+AC023,2025-02-24,Dent,0.92,414,Right Wing
+AC023,2025-03-26,Dent,0.82,153,Right Wing
+AC023,2025-04-25,Dent,0.84,100,Right Wing
+AC023,2025-01-25,Dent,0.82,308,Fuselage
+AC023,2025-02-24,Dent,0.83,198,Fuselage
+AC023,2025-03-26,Dent,0.83,130,Fuselage
+AC023,2025-04-25,Dent,0.89,100,Fuselage
+AC024,2025-01-23,Fastener Damage,0.81,352,Engine Area
+AC024,2025-02-22,Fastener Damage,0.98,323,Engine Area
+AC024,2025-03-24,Fastener Damage,0.95,394,Engine Area
+AC024,2025-04-23,Fastener Damage,0.93,369,Engine Area
+AC024,2025-01-23,Rupture,0.82,678,Left Wing
+AC024,2025-02-22,Rupture,0.92,855,Left Wing
+AC024,2025-03-24,Rupture,0.96,1054,Left Wing
+AC024,2025-04-23,Rupture,0.81,1092,Left Wing
+AC024,2025-01-23,Crack,0.94,605,Wing Root
+AC024,2025-02-22,Crack,0.98,453,Wing Root
+AC024,2025-03-24,Crack,0.82,333,Wing Root
+AC024,2025-04-23,Crack,0.86,101,Wing Root
+AC025,2025-01-03,Corrosion,0.94,506,Wing Root
+AC025,2025-02-02,Corrosion,0.8,690,Wing Root
+AC025,2025-03-04,Corrosion,0.98,862,Wing Root
+AC025,2025-04-03,Corrosion,0.99,881,Wing Root
+AC025,2025-01-03,Fastener Damage,0.81,544,Fuselage
+AC025,2025-02-02,Fastener Damage,0.83,368,Fuselage
+AC025,2025-03-04,Fastener Damage,0.92,252,Fuselage
+AC025,2025-04-03,Fastener Damage,0.83,199,Fuselage
+AC025,2025-01-03,Corrosion,0.95,499,Engine Area
+AC025,2025-02-02,Corrosion,0.89,408,Engine Area
+AC025,2025-03-04,Corrosion,0.86,235,Engine Area
+AC025,2025-04-03,Corrosion,0.82,100,Engine Area
