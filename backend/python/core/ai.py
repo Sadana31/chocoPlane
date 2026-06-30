@@ -1,4 +1,18 @@
 # aircraft_intelligence.py
+from core.ai_models import (
+    risk_model,
+    ruh_model,
+    failure_model,
+    health_model,
+    cost_model,
+    urgency_model,
+    urgency_encoder,
+    defect_encoder,
+    location_encoder,
+    explainer,
+)
+
+import pandas as pd
 
 DEFECT_SCORE = {
     "rupture": 60,
@@ -8,6 +22,34 @@ DEFECT_SCORE = {
     "dent": 30
 }
 
+URGENCY_SCORE = {
+
+    "Routine":30,
+
+    "Scheduled":60,
+
+    "High":80,
+
+    "Immediate":100
+
+}
+
+FEATURE_NAMES = {
+
+    "defect_encoded": "Defect Type",
+
+    "location_encoded": "Aircraft Location",
+
+    "confidence": "Detection Confidence",
+
+    "bbox_area": "Defect Area",
+
+    "occurrences": "Previous Occurrences",
+
+    "growth_rate": "Growth Rate"
+
+}
+
 LOCATION_SCORE = {
     "Left Wing": 30,
     "Right Wing": 30,
@@ -15,6 +57,16 @@ LOCATION_SCORE = {
     "Tail": 20,
     "Nose": 20
 }
+
+LOCATION_MAPPING = {
+    "Nose": "Fuselage",
+    "Tail": "Tail Section",
+    "Landing Gear": "Engine Area",
+    "Left Wing": "Left Wing",
+    "Right Wing": "Right Wing",
+    "Fuselage": "Fuselage",
+}
+
 
 ACTIONS = {
     "rupture": "Immediate Structural Inspection",
@@ -404,27 +456,6 @@ def remaining_useful_health(
         0
     )
 
-
-def predicted_maintenance_cost(
-    current_cost,
-    occurrences,
-    severity
-):
-
-    future_cost = (
-        current_cost
-        +
-        occurrences * 500
-        +
-        severity * 50
-    )
-
-    return round(
-        future_cost,
-        2
-    )
-
-
 def fleet_priority_rank(
     severity,
     future_risk,
@@ -450,10 +481,17 @@ def fleet_priority_rank(
 
     return "Priority 4"
 
+
 def generate_aircraft_intelligence(
     defect,
     history=[]
 ):
+    defect_name = defect["class"].replace("_", " ").title()
+
+    location_name = LOCATION_MAPPING.get(
+        defect["location"],
+        "Fuselage"
+    )
 
     bbox_area = calculate_bbox_area(
         defect["width"],
@@ -484,23 +522,149 @@ def generate_aircraft_intelligence(
         defect["confidence"]
     )
 
-    urgency = calculate_urgency(
-        severity,
+    features = pd.DataFrame([{
+
+        "defect_encoded":
+        defect_encoder.transform([defect_name])[0],
+
+        "location_encoded":
+        location_encoder.transform([location_name])[0],
+
+        "confidence":
         defect["confidence"],
-        defect["location"]
-    )
 
-    projected_risk = future_risk(
-        severity,
+        "bbox_area":
+        bbox_area,
+
+        "occurrences":
         occurrences,
+
+        "growth_rate":
         growth_rate
+
+    }])
+
+    urgency_label = urgency_encoder.inverse_transform(
+
+        urgency_model.predict(features)
+
+    )[0]
+
+    urgency = URGENCY_SCORE[
+        urgency_label
+    ]
+
+    projected_risk = round(
+        risk_model.predict(features)[0],
+        1
     )
 
-    health_score = aircraft_health(
-        severity,
-        urgency
+    shap_values = explainer(features)
+
+    feature_impacts = []
+
+    EXPLANATIONS = {
+
+        "Defect Type":
+        {
+            "positive":
+            "The detected defect type significantly increases structural risk.",
+
+            "negative":
+            "The detected defect type has a relatively lower structural impact."
+        },
+
+        "Aircraft Location":
+        {
+            "positive":
+            "The affected aircraft section is considered a critical maintenance zone.",
+
+            "negative":
+            "The affected aircraft section has comparatively lower operational risk."
+        },
+
+        "Detection Confidence":
+        {
+            "positive":
+            "The model has high confidence in the detected defect, increasing prediction certainty.",
+
+            "negative":
+            "Lower detection confidence slightly reduces the overall predicted risk."
+        },
+
+        "Defect Area":
+        {
+            "positive":
+            "A larger damaged area strongly increases the predicted maintenance risk.",
+
+            "negative":
+            "A smaller damaged area reduces the predicted maintenance impact."
+        },
+
+        "Previous Occurrences":
+        {
+            "positive":
+            "Repeated defects at this location indicate recurring structural degradation.",
+
+            "negative":
+            "Very few previous occurrences reduce long-term maintenance concern."
+        },
+
+        "Growth Rate":
+        {
+            "positive":
+            "Rapid defect growth increases the probability of future failure.",
+
+            "negative":
+            "Stable or decreasing defect growth lowers future maintenance risk."
+        }
+
+    }
+
+    for feature_name, impact in zip(
+        features.columns,
+        shap_values.values[0]
+    ):
+
+        pretty = FEATURE_NAMES.get(
+            feature_name,
+            feature_name
+        )
+
+        direction = (
+            "positive"
+            if impact > 0
+            else "negative"
+        )
+
+        feature_impacts.append({
+
+            "feature": pretty,
+
+            "impact": round(
+                abs(float(impact)),
+                2
+            ),
+
+            "direction":
+            "Increased Risk"
+            if impact > 0
+            else "Reduced Risk",
+
+            "reason":
+            EXPLANATIONS[pretty][direction]
+
+        })
+
+    feature_impacts.sort(
+        key=lambda x: x["impact"],
+        reverse=True
     )
 
+    health_score = round(
+        health_model.predict(features)[0],
+        1
+    )
     burden = maintenance_burden(
         severity,
         urgency
@@ -510,23 +674,24 @@ def generate_aircraft_intelligence(
         defect["class"]
     )
 
-    failure_prob = failure_probability(
-        severity,
-        occurrences,
-        growth_rate
+    failure_prob = round(
+        failure_model.predict(features)[0],
+        1
     )
 
-    ruh = remaining_useful_health(
-        health_score,
-        occurrences
+    ruh = round(
+        ruh_model.predict(features)[0],
+        1
     )
 
-    future_cost = predicted_maintenance_cost(
-        maintenance_cost(
-            defect["class"]
-        ),
-        occurrences,
-        severity
+    future_cost = round(
+
+        cost_model.predict(
+            features
+        )[0],
+
+        0
+
     )
 
     priority_rank = fleet_priority_rank(
@@ -539,6 +704,11 @@ def generate_aircraft_intelligence(
         severity,
         urgency,
         projected_risk
+    )
+
+    maintenance_cost_value = round(
+        cost_model.predict(features)[0],
+        0
     )
 
     return {
@@ -577,9 +747,7 @@ def generate_aircraft_intelligence(
 
         "maintenanceBurden": burden,
 
-        "maintenanceCost": maintenance_cost(
-            defect["class"]
-        ),
+        "maintenanceCost": maintenance_cost_value,
 
         "zoneRisk": zone_risk(
             defect["location"]
@@ -612,6 +780,7 @@ def generate_aircraft_intelligence(
             defect["location"],
             urgency,
             recommendation_text
-        )
+        ),
+        "aiFactors": feature_impacts[:3],
 
     }

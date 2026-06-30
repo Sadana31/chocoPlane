@@ -28,7 +28,7 @@ import {
 } from "lucide-react";
 
 const getSeverityColorHex = (severity) => {
-  if (severity >= 80) return 0xff0000;
+  if (severity >= 95) return 0xff0000;
   if (severity >= 60) return 0xff8800;
   if (severity >= 40) return 0xffff00;
   return 0x00ff66;
@@ -752,6 +752,54 @@ export default function ResultsPage() {
                 </div>
               </section>
 
+              <section className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+                <h3 className="text-sm font-bold text-slate-300 uppercase tracking-widest mb-6 flex items-center gap-2">
+                  <Activity size={18} className="text-cyan-500" />
+                  Explainable AI Insights
+                </h3>
+
+                <div className="space-y-4">
+                  {(selectedDefect.aiFactors || []).map((factor, index) => (
+                    <div
+                      key={index}
+                      className="bg-slate-950 border border-slate-800 rounded-xl p-5"
+                    >
+                      <div className="flex justify-between">
+                        <div>
+                          <p className="text-lg font-bold text-white">
+                            {factor.feature}
+                          </p>
+
+                          <p
+                            className={`text-sm font-semibold ${
+                              factor.direction === "Increased Risk"
+                                ? "text-red-400"
+                                : "text-emerald-400"
+                            }`}
+                          >
+                            {factor.direction}
+                          </p>
+                        </div>
+
+                        <div className="text-right">
+                          <p className="text-3xl font-bold text-cyan-400">
+                            {factor.impact}
+                          </p>
+
+                          <p className="text-xs uppercase text-slate-500">
+                            SHAP Score
+                          </p>
+                        </div>
+                      </div>
+
+                      <p className="text-slate-300 mt-4 leading-relaxed">
+                        {factor.reason}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
               {/* === MODULE 3: FLEET & MAINTENANCE LOGISTICS === */}
               <section className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
                 <h3 className="text-sm font-bold text-slate-300 uppercase tracking-widest mb-6 flex items-center gap-2">
@@ -864,7 +912,7 @@ export default function ResultsPage() {
                   </div>
                   <div className="flex-1 flex items-center justify-center p-4 relative bg-black/40">
                     <img
-                      src={`http://localhost:5000/heatmaps/${selectedDefect.image || "test_aircraft.jpg"}`}
+                      src={`http://localhost:5000/${selectedDefect.heatmap}`}
                       alt="Heatmap overlay"
                       className="w-full h-full object-contain rounded-lg z-10"
                       onError={(e) => {

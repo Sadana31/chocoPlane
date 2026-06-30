@@ -4,31 +4,34 @@ import cv2
 import numpy as np
 import os
 
-BASE_DIR = os.path.dirname(__file__)
+from pathlib import Path
 
-EIGENCAM_PATH = os.path.abspath(
-    os.path.join(
-        BASE_DIR,
-        "..",
-        "resources",
-        "example-scripts",
-        "explainable-ai",
-        "eigencam-yolov8"
-    )
+BASE_DIR = Path(__file__).resolve().parent
+
+EIGENCAM_PATH = (
+    BASE_DIR.parent.parent
+    / "resources"
+    / "example-scripts"
+    / "explainable-ai"
+    / "eigencam-yolov8"
 )
 
-sys.path.append(EIGENCAM_PATH)
+sys.path.insert(0, str(EIGENCAM_PATH))
 
 from ultralytics import YOLO
+sys.path.insert(0, EIGENCAM_PATH)
+
 from yolov8_cam.eigen_cam import EigenCAM
 from yolov8_cam.utils.image import show_cam_on_image
 
 
 MODEL_PATH = os.path.join(
     BASE_DIR,
+    "..",
+    "models",
     "best.pt"
 )
-model = YOLO(MODEL_PATH)
+model = YOLO(MODEL_PATH,verbose=False)
 
 # Target layer used by the notebook
 target_layers = [model.model.model[-4]]
@@ -101,5 +104,10 @@ def generate_heatmap(image_path, output_path):
           overlay_path,
           overlay
       )
+    
 
+    return {
+        "heatmap": output_path,
+        "overlay": overlay_path
+    }
     

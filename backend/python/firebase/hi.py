@@ -1,23 +1,16 @@
 from firebase_service import db
 
-doc_ids = [
-    "1RWwpQkUUGI7MdpOuWrR",
-    "   ",
-    "xegBXW61XvIkRAFCW8cG",
-    "zoqsg8izjf0a02xefSAH"
-]
+docs = (
+    db.collection("inspections")
+    .where("inspectionDate", ">", "2026-06-15")
+    .stream()
+)
 
-for doc_id in doc_ids:
+count = 0
 
-    db.collection(
-        "inspections"
-    ).document(
-        doc_id
-    ).delete()
+for doc in docs:
+    print(f"Deleting: {doc.id}")
+    doc.reference.delete()
+    count += 1
 
-    print(
-        "Deleted:",
-        doc_id
-    )
-
-print("Done")
+print(f"Done. Deleted {count} inspections.")

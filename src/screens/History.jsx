@@ -50,7 +50,7 @@ export default function HistoryPage() {
   // --- HELPERS ---
   const getSeverityBadge = (severityVal) => {
     const num = Number(severityVal);
-    if (num >= 80)
+    if (num >= 90)
       return (
         <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-medium">
           <AlertTriangle className="w-3 h-3" /> High ({num})

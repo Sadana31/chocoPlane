@@ -2,6 +2,7 @@ from ultralytics import YOLO
 from PIL import Image
 import os
 from pathlib import Path
+from xai.heatmap import generate_heatmap
 # =========================
 # Load Models
 # =========================
@@ -21,11 +22,13 @@ PART_MODEL_PATH = (
 )
 
 DEFECT_MODEL = YOLO(
-    str(DEFECT_MODEL_PATH)
+    str(DEFECT_MODEL_PATH),
+    verbose=False
 )
 
 PART_MODEL = YOLO(
-    str(PART_MODEL_PATH)
+    str(PART_MODEL_PATH),
+    verbose=False
 )
 
 # =========================
@@ -35,7 +38,8 @@ PART_MODEL = YOLO(
 def detect_parts(image_path):
 
     results = PART_MODEL(
-        image_path
+        image_path,
+        verbose=False
     )
 
     parts = []
@@ -106,7 +110,8 @@ def detect_defects(image_path):
     )
 
     results = DEFECT_MODEL(
-        image_path
+        image_path,
+        verbose=False
     )
 
     defects = []
@@ -167,10 +172,36 @@ def detect_defects(image_path):
     return defects
 
 
+import sys
+
 if __name__ == "__main__":
 
-    image_path = "images/test_aircraft.jpg"
+    if len(sys.argv) < 4:
+        print("Usage: analyze.py <image_path> <location> <aircraft_id>")
+        sys.exit(1)
 
-    results = detect_defects(
-        image_path
+    image_path = sys.argv[1]
+    location = sys.argv[2]
+    aircraft_id = sys.argv[3]
+
+    image_name = Path(image_path).stem
+
+    heatmap_path = (
+        BASE_DIR
+        / "outputs"
+        / "heatmaps"
+        / f"{image_name}.jpg"
     )
+
+    generate_heatmap(
+        image_path,
+        str(heatmap_path)
+    )
+
+    print("Image:", image_path)
+    print("Location:", location)
+    print("Aircraft:", aircraft_id)
+
+    results = detect_defects(image_path)
+
+    print(results)

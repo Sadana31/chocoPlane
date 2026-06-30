@@ -6,6 +6,8 @@ sys.path.append(
         Path(__file__).resolve().parents[1]
     )
 )
+from xai.heatmap import generate_heatmap
+
 
 from core.detector import detect_defects
 from core.ai import generate_aircraft_intelligence
@@ -16,6 +18,17 @@ import json
 import sys
 
 image_path = sys.argv[1]
+
+BASE_DIR = Path(__file__).resolve().parents[1]
+
+image_name = Path(image_path).stem
+
+heatmap_path = (
+    BASE_DIR
+    / "outputs"
+    / "heatmaps"
+    / f"{image_name}.jpg"
+)
 
 section = (
     sys.argv[2]
@@ -31,6 +44,11 @@ aircraft_id = (
 
 history = get_aircraft_history(
     aircraft_id
+)
+
+paths = generate_heatmap(
+    image_path,
+    str(heatmap_path)
 )
 
 defects = detect_defects(image_path)
@@ -110,7 +128,11 @@ for defect in defects:
         intel["recommendation"],
 
         "executiveSummary":
-        intel["executiveSummary"]
+        intel["executiveSummary"],
+
+        "heatmap": f"heatmaps/{image_name}.jpg",
+        "overlay": f"overlays/{image_name}.jpg",
+        "aiFactors": intel["aiFactors"],
 
     }
 

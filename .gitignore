@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+backend/python/firebase/serviceAccountKey.json
+backend/uploads
+backend/xai/__pycache__
