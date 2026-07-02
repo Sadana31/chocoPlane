@@ -154,56 +154,6 @@ Interactive 3D Aircraft Twin
 Maintenance Dashboard
 ```
 
-# 🤖 AI Pipeline
-
-```text
-Aircraft Inspection Image
-            │
-            ▼
-Aircraft Part Detection (YOLOv11)
-            │
-            ▼
-Defect Detection (YOLOv11)
-            │
-            ▼
-Bounding Box Extraction
-            │
-            ▼
-Aircraft Section Mapping
-            │
-            ▼
-────────────────────────────────────
-
-Random Forest AI Engine
-
-• Future Risk
-• Failure Probability
-• Health Score
-• Remaining Useful Health
-• Maintenance Cost
-• Maintenance Urgency
-
-────────────────────────────────────
-
-            │
-            ▼
-
-Explainable AI
-
-• EigenCAM
-• SHAP
-
-            │
-            ▼
-
-Interactive 3D Aircraft Twin
-
-            │
-            ▼
-
-Maintenance Dashboard
-```
-
 # 📂 Project Structure
 
 ```text
