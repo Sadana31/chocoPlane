@@ -284,61 +284,6 @@ AI Explanation
 ```
 
 
-# 🔍 Explainable AI
-
-DRISHTI incorporates Explainable AI at two different stages of the pipeline to improve transparency and engineer trust.
-
-## EigenCAM
-
-EigenCAM explains the Computer Vision model by highlighting the image regions responsible for defect detection.
-
-```text
-Aircraft Image
-        │
-        ▼
-YOLOv11
-        │
-        ▼
-Activation Maps
-        │
-        ▼
-EigenCAM Heatmap
-        │
-        ▼
-Overlay on Inspection Image
-```
-
-## SHAP
-
-SHAP explains the Machine Learning predictions by identifying the contribution of every input feature.
-
-```text
-Input Features
-
-Defect Area
-Growth Rate
-Occurrences
-Confidence
-Location
-Defect Type
-
-        │
-        ▼
-
-Random Forest
-
-        │
-        ▼
-
-SHAP Feature Importance
-
-        │
-        ▼
-
-AI Explanation
-```
-
-
 # 🌍 Digital Twin
 
 The Digital Twin provides an interactive visualization of detected defects on a realistic 3D aircraft model.
